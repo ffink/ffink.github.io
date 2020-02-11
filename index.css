@@ -1,0 +1,86 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0.7px;
+}
+
+.container {
+  height: fit-content;
+  width: 400px;
+  box-shadow: 1px 1px 20px 7px rgba(0, 0, 0, 0.11);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top {
+  width: 100%;
+  position: relative;
+}
+
+.header {
+  position: absolute;
+  top: 0px;
+  padding: 30px;
+
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top .image {
+  background-size: contain;
+  width: 100%;
+}
+
+.about {
+  width: 100%;
+  height: 200px;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.about .item {
+  margin-top: 10px;
+}
+
+.contact .social {
+  margin-left: 25px;
+  margin-bottom: 25px;
+  width: 50px;
+}
+
+.about .button:focus {
+  outline: 0;
+}
+
+
+.about .button:focus {
+  box-shadow: 1px 1px 20px 7px rgba(127, 99, 248, 0.2);
+}
+
+.about .button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 15px 3px rgba(0, 172, 237, 0.6);
+}
+
+.about .company {
+  color: gray;
+  font-weight: bold;
+}
+
+.about .info {
+  color: gray;
+}
+
+.about .title {
+  font-weight: bolder;
+  font-size: 130%;
+}
