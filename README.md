@@ -1,3 +1,3 @@
-# ffink.github.io
+# frankf.ink
 
-A website about me, even though literally no one asked for one!
+The website about me that no one asked for.
