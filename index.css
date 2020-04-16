@@ -86,8 +86,15 @@
 
 @media only screen and (max-width: 600px) {
   .container {
-    height: fit-content;
+    height: 100%;
     width: 100%;
-    overflow: hidden;
+    box-shadow: none;
+    border-radius: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .body {
+    margin: 0px;
   }
 }
