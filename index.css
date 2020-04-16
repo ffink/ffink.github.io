@@ -87,8 +87,6 @@
 @media only screen and (max-width: 600px) {
   .container {
     height: fit-content;
-    box-shadow: none;
-    border-radius: none;
     width: 100%;
     overflow: hidden;
   }
