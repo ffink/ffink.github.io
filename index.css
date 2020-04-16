@@ -83,3 +83,11 @@
   font-weight: bolder;
   font-size: 130%;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    height: fit-content;
+    width: 100%;
+    overflow: hidden;
+  }
+}
