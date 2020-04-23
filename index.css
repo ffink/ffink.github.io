@@ -84,7 +84,7 @@
   font-size: 130%;
 }
 
-.social .dark {
+.contact .social .dark {
   display: none;
 }
 
@@ -111,11 +111,11 @@
     color: white;
   }
 
-  .social .dark {
+  .contact .social .dark {
     display: initial;
   }
 
-  .social .light {
+  .contact .social .light {
     display: none;
   }
 }
