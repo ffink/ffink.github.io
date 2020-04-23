@@ -84,8 +84,12 @@
   font-size: 130%;
 }
 
-.contact .social .dark {
+.dark {
   display: none;
+}
+
+.light {
+  display: initial;
 }
 
 @media only screen and (max-width: 600px) {
@@ -111,11 +115,11 @@
     color: white;
   }
 
-  .contact .social .dark {
+  .dark {
     display: initial;
   }
 
-  .contact .social .light {
+  .light {
     display: none;
   }
 }
