@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Frank P. Fink</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <meta name="viewport" content="width=device-width" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Frank P. Fink</title>
-  <link rel="stylesheet" href="index.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
-  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-  <meta name="viewport" content="width=device-width"/>
-</head>
+  <body class="body">
+    <div class="container">
+      <div class="headshot"></div>
+      <div class="about">
+        <div class="name">Frank P. Fink</div>
+        <div class="company">Security Analyst, GitHub</div>
+        <div class="description">
+          Hi, I'm Frank. I work on GitHub Security's Technical Risk
+          Management&nbsp;team.
+        </div>
+      </div>
 
-<body class="body">
-  <div class="container">
-    <div class="top">
-      <img class="image" src="img/headshot.jpg" />
+      <div class="contact">
+        <a href="https://twitter.com/finkerdinks"
+          ><img class="social" src="img/twitter.png"
+        /></a>
+        <a href="https://linkedin.com/in/frankfink/"
+          ><img class="social" src="img/linkedin.png"
+        /></a>
+        <a class="light" href="https://github.com/ffink"
+          ><img class="social" src="img/github.png"
+        /></a>
+        <a class="dark" href="https://github.com/ffink"
+          ><img class="social" src="img/github-white.png"
+        /></a>
+      </div>
     </div>
-
-    <div class="about">
-      <div class="item title">Frank P. Fink</div>
-      <div class="company">Security Analyst, GitHub</div>
-      <div class="item info">Hi, I'm Frank. I work on GitHub Security's Technical Risk Management team.</div>
-    </div>
-
-    <div class="contact">
-      <a href="https://twitter.com/finkerdinks"><img class="social" src="img/twitter.png" ></a>
-      <a href="https://linkedin.com/in/frankfink/"><img class="social" src="img/linkedin.png" ></a>
-      <a href="https://github.com/ffink"><img class="social light" src="img/github.png" ></a>
-      <a href="https://github.com/ffink"><img class="social dark" src="img/github-white.png" ></a>
-    </div>
-  </div>
-</body>
-
+    <script>
+      // On Safari, they consider the viewport in an unexpected way.
+      // The top bar and bottom bar technically don't count which
+      // causes responsive css VH and VW to spill over on iOS
+      function setViewportHeightCssProperty() {
+        var vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+      }
+      setViewportHeightCssProperty()
+      window.addEventListener("resize", setViewportHeightCssProperty);
+    </script>
+  </body>
 </html>
