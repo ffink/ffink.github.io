@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout repo content
+      uses: actions/checkout@master
+      
     - name: Create working branch
       run: |
         git checkout -b reporting-action
