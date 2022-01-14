@@ -1,0 +1,35 @@
+name: 'Create a branch'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  setup-python:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Create working branch
+      run: |
+        git checkout -b reporting-action
+        touch new.md
+        git add *
+        git stage *
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions"
+        git commit -m "Add file" -a
+
+    - name: Push Changes
+      uses: ad-m/github-push-action@master
+      with:
+        branch: "reporting-action"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Open pull request
+      uses: repo-sync/pull-request@v2
+      with:
+        source_branch: "reporting-action"
+        destination_branch: "master"
+        pr_title: "Weekly automated reporting updates"
+        pr_body: ":wave: Hello!"
+        pr_reviewer: "ffink"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
