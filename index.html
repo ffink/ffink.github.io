@@ -5,7 +5,7 @@
     <title>Frank P. Fink</title>
     <link rel="stylesheet" href="index.css" />
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -36,31 +36,88 @@
   </head>
 
   <body class="body">
-    <div class="container">
-      <div class="headshot"></div>
-      <div class="about">
-        <div class="name">Frank P. Fink</div>
-        <div class="company">Director of Security at PlanetScale</div>
-        <div class="description">
-          Hi, I'm Frank. I work on Security and Compliance at <a href="https://planetscale.com">PlanetScale</a>.
+    <div class="layout">
+      <div class="sidebar">
+        <div class="profile-card">
+          <div class="photo-card">
+            <div class="headshot"></div>
+          </div>
+          <div class="contact">
+            <a class="social-link social-link--twitter" href="https://twitter.com/fp_fink"
+              ><img class="social" src="img/twitter.png"
+            /></a>
+            <a class="social-link social-link--linkedin" href="https://linkedin.com/in/frankfink/"
+              ><img class="social" src="img/linkedin.png"
+            /></a>
+            <a class="social-link social-link--github" href="https://github.com/ffink">
+              <img class="social light" src="img/github.png" />
+              <img class="social dark" src="img/github-white.png" />
+            </a>
+          </div>
         </div>
       </div>
-
-      <div class="contact">
-        <a href="https://twitter.com/fp_fink"
-          ><img class="social" src="img/twitter.png"
-        /></a>
-        <a href="https://linkedin.com/in/frankfink/"
-          ><img class="social" src="img/linkedin.png"
-        /></a>
-        <a class="light" href="https://github.com/ffink"
-          ><img class="social" src="img/github.png"
-        /></a>
-        <a class="dark" href="https://github.com/ffink"
-          ><img class="social" src="img/github-white.png"
-        /></a>
+      <div class="content">
+        <div class="about">
+          <div class="name">Frank P. Fink</div>
+          <div class="company">Director of Security at PlanetScale</div>
+          <div class="description">
+            Hi, I'm Frank. Right now, I'm working on securing <a href="https://planetscale.com">PlanetScale</a>, but I've done some <a href="#" id="other-things" aria-expanded="false" aria-controls="more-content">other things</a> too.
+          </div>
+          <div class="more-content" id="more-content">
+            <p>
+              I have led security programs end-to-end, built incident response playbooks, and partnered with engineering teams to ship secure-by-default systems.
+            </p>
+            <p>
+              Before PlanetScale, I helped scale security operations across fast-growing teams and worked hands-on with compliance, risk, and product security.
+            </p>
+            <div class="resume-entry">
+              <div class="resume-company">GitHub</div>
+              <div class="resume-years">2017-2023</div>
+              <div class="resume-role">Senior Technical Program Manager, Engineering &amp; Security</div>
+              <p class="resume-description">
+                In this role, built a team dedicated to managing internal operations of GitHub’s security department, focused on
+                strategic planning, resource management, workforce planning, and companywide security awareness. This was a
+                previously under-resourced space within the department, frequently reliant on people managers to devote ad hoc
+                time. Centralizing these functions with a single office has given the department a clearer vision and strategy set
+                by our team in conjunction with Security leadership, and removed needless opacity from our planning process and
+                departmental goals.
+              </p>
+            </div>
+            <div class="resume-entry">
+              <div class="resume-role">Senior Analyst, Technical Risk Management</div>
+              <p class="resume-description">
+                Working in technical risk, centralized cross-company risk management efforts into a singular program for tracking
+                risk and security findings from a variety of sources including our vulnerability management program, various legal
+                and compliance reviews, and acquisitional diligence. Additionally, led the third-party risk management program
+                responsible for measuring the maturity of vendors and dependencies used at GitHub, and designed an internal
+                implementation review to ensure that secure best practices are followed continuously post-contract.
+              </p>
+            </div>
+            <div class="resume-entry">
+              <div class="resume-company">PricewaterhouseCoopers LLP</div>
+              <div class="resume-years">2016-2017</div>
+              <div class="resume-role">Consultant, Information Security Risk</div>
+              <p class="resume-description">
+                Managed and executed projects to assess the health of complex IT control environments within major clients in
+                the tech sector, including eBay, Twitter, GitHub, and Airbnb. This included identifying, investigating, reporting,
+                and mitigating financial and technical risk across the client’s business. Critically, this also involved the building and
+                maintaining of durable reporting and metric capture for project resourcing, risk burndown, and success criteria.
+              </p>
+            </div>
+            <div class="resume-entry">
+              <div class="resume-company">Kratos Defense &amp; Security Solutions</div>
+              <div class="resume-years">2013-2015</div>
+              <div class="resume-role">IT Generalist</div>
+              <p class="resume-description">
+                As a generalist, focused on a variety of endpoint management and general support activities, and initiated an
+                overhaul of the company’s identity and access management program during a period of heavy acquisitions.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <button class="theme-toggle" id="theme-toggle" type="button">Theme</button>
     <script>
       // On Safari, they consider the viewport in an unexpected way.
       // The top bar and bottom bar technically don't count which
@@ -69,8 +126,87 @@
         var vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty("--vh", `${vh}px`);
       }
-      setViewportHeightCssProperty()
+      setViewportHeightCssProperty();
       window.addEventListener("resize", setViewportHeightCssProperty);
+
+      (function () {
+        var toggleButton = document.getElementById("theme-toggle");
+        var otherThingsLink = document.getElementById("other-things");
+        var moreContent = document.getElementById("more-content");
+        var contentColumn = document.querySelector(".content");
+        if (!toggleButton) {
+          return;
+        }
+
+        var storageKey = "theme-preference";
+        var themeOrder = ["system", "light", "dark"];
+        var themeMeta = {
+          system: { label: "Theme: System", glyph: "💻" },
+          light: { label: "Theme: Light", glyph: "☀" },
+          dark: { label: "Theme: Dark", glyph: "☾" },
+        };
+
+        function getStoredTheme() {
+          var stored = localStorage.getItem(storageKey);
+          if (themeOrder.indexOf(stored) !== -1) {
+            return stored;
+          }
+          return "system";
+        }
+
+        function labelForTheme(theme) {
+          return (themeMeta[theme] || themeMeta.system).label;
+        }
+
+        function glyphForTheme(theme) {
+          return (themeMeta[theme] || themeMeta.system).glyph;
+        }
+
+        function applyTheme(theme) {
+          if (theme === "system") {
+            document.documentElement.removeAttribute("data-theme");
+          } else {
+            document.documentElement.setAttribute("data-theme", theme);
+          }
+          var label = labelForTheme(theme);
+          toggleButton.textContent = glyphForTheme(theme);
+          toggleButton.setAttribute("aria-label", label);
+          toggleButton.setAttribute("title", label);
+        }
+
+        function nextTheme(theme) {
+          var index = themeOrder.indexOf(theme);
+          var nextIndex = (index + 1) % themeOrder.length;
+          return themeOrder[nextIndex];
+        }
+
+        var currentTheme = getStoredTheme();
+        applyTheme(currentTheme);
+
+        toggleButton.addEventListener("click", function () {
+          currentTheme = nextTheme(currentTheme);
+          localStorage.setItem(storageKey, currentTheme);
+          applyTheme(currentTheme);
+        });
+
+        var mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        mediaQuery.addEventListener("change", function () {
+          if (currentTheme === "system") {
+            applyTheme("system");
+          }
+        });
+
+        if (otherThingsLink && moreContent && contentColumn) {
+          otherThingsLink.addEventListener("click", function (event) {
+            event.preventDefault();
+            var isExpanded = contentColumn.classList.toggle("is-scrollable");
+            otherThingsLink.setAttribute("aria-expanded", String(isExpanded));
+            if (isExpanded) {
+              moreContent.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        }
+      })();
     </script>
   </body>
 </html>
