@@ -140,9 +140,70 @@ body {
 }
 
 .resume-entry {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid var(--card-border);
+  position: relative;
+  margin-top: 20px;
+  padding-bottom: 2px;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  column-gap: 16px;
+}
+
+.resume-entry:first-child {
+  margin-top: 0;
+}
+
+.resume-timeline {
+  position: relative;
+  margin-top: 16px;
+  --timeline-x: 12px;
+  padding-left: 0;
+}
+
+.resume-timeline::before {
+  content: "";
+  position: absolute;
+  left: var(--timeline-x);
+  top: 4px;
+  bottom: 6px;
+  width: 1px;
+  background: var(--card-border);
+}
+
+.resume-marker {
+  grid-column: 1;
+  grid-row: 1;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  justify-self: center;
+  align-self: center;
+}
+
+.resume-marker::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 18px;
+  background: var(--bg);
+  transform: translate(-50%, -50%);
+}
+
+.resume-marker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--card-border);
+  transform: translate(-50%, -50%);
+}
+
+.resume-entry > :not(.resume-marker) {
+  grid-column: 2;
 }
 
 .resume-company {
