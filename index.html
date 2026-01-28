@@ -120,6 +120,11 @@
                   overhaul of the company’s identity and access management program during a period of heavy acquisitions.
                 </p>
               </div>
+              <div class="resume-entry resume-entry--collapse">
+                <button class="resume-collapse" type="button" aria-label="Collapse timeline">
+                  <span class="resume-collapse__icon" aria-hidden="true">⌃</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -204,14 +209,27 @@
           }
         });
 
+        var collapseButton = document.querySelector(".resume-collapse");
+        function setExpandedState(isExpanded) {
+          contentColumn.classList.toggle("is-scrollable", isExpanded);
+          otherThingsLink.setAttribute("aria-expanded", String(isExpanded));
+          if (isExpanded) {
+            moreContent.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+
         if (otherThingsLink && moreContent && contentColumn) {
           otherThingsLink.addEventListener("click", function (event) {
             event.preventDefault();
-            var isExpanded = contentColumn.classList.toggle("is-scrollable");
-            otherThingsLink.setAttribute("aria-expanded", String(isExpanded));
-            if (isExpanded) {
-              moreContent.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
+            var isExpanded = !contentColumn.classList.contains("is-scrollable");
+            setExpandedState(isExpanded);
+          });
+        }
+
+        if (collapseButton && otherThingsLink && contentColumn) {
+          collapseButton.addEventListener("click", function () {
+            setExpandedState(false);
+            otherThingsLink.scrollIntoView({ behavior: "smooth", block: "start" });
           });
         }
       })();
